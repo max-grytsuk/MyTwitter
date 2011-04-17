@@ -1,0 +1,137 @@
+<?php echo $this->doctype('XHTML1_STRICT'); ?>
+<html>
+<head>
+
+    <?php $this->headMeta()->appendHttpEquiv('Content-Type','text/html; charset=UTF-8');
+    echo $this->headMeta() ?>
+
+    <title>MyTwitter</title>
+
+    <?php
+
+    $this->headLink()->appendStylesheet($this->baseUrl('public/css/shared/reset-fonts-grids.css'));
+    $this->headLink()->appendStylesheet($this->baseUrl('public/css/main/style.css'));
+    $this->headScript()->appendFile( ('http://yui.yahooapis.com/3.3.0/build/yui/yui-min.js'),'text/javascript');
+    $this->headScript()->appendFile( ('http://cdn.jquerytools.org/1.2.5/jquery.tools.min.js') );
+    $this->headScript()->appendFile( $this->baseUrl('public/js/main/core.js'),'text/javascript');
+
+    echo $this->headScript()."\n";
+    echo $this->headLink();
+    ?>
+
+</head>
+<body>
+<div class="art-nav" id="top">
+    <div style="float: left" >
+        <ul class="art-menu">
+            <li id='bProfile'>
+                <a href="../main/profile" ><span class="l"></span><span class="r"></span><span class="t">Profile</span></a>
+            </li>
+            <li id='bWhoToFollow'>
+                <a href="#" ><span class="l"></span><span class="r"></span><span class="t">Who to follow</span></a>
+            </li>
+        </ul>
+    </div>
+    <div id ='bAddTweet'><a href="#" >&nbsp;Add Tweet&nbsp;</a></div>
+    <div id="logged" style="float: right">
+        <div  style="float: left; margin-right: 20px;margin-top:4px;">
+            <a href="../auth/logout">logout</a>
+        </div>
+    </div>
+</div>
+<div id="art-main">
+    <div class="art-Sheet">
+        <div class="art-Sheet-body">
+            <div class="art-contentLayout">
+                <div class="art-content">
+                    <div class="art-Post">
+                        <div class="art-Post-body">
+                            <div class="art-Post-inner">
+                                <div class="art-PostContent">
+                                    <div class="art-Block" >
+                                        <div class="art-Block-tl"></div>
+                                        <div class="art-Block-tr"></div>
+                                        <div class="art-Block-bl"></div>
+                                        <div class="art-Block-br"></div>
+                                        <div class="art-Block-tc"></div>
+                                        <div class="art-Block-bc"></div>
+                                        <div class="art-Block-cl"></div>
+                                        <div class="art-Block-cr"></div>
+                                        <div class="art-Block-cc"></div>
+                                        <div class="art-Block-body">
+
+                                            <div class="art-BlockContent">
+                                                <div class="art-BlockContent-body" >
+                                                    <div>
+                                                        <div style="float:left;">
+                                                            <div style="float:left"><h2>Timeline</h2></div>
+                                                            <div id ='refreshTimeline'><a href="#"> (refresh)</a> </div>
+                                                        </div>
+                                                        <div style="float:right;">
+
+                                                            <div id='moreTweets'><a href="#"> more tweets ...</a> </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="cleared"></div>
+                                                    <div id="actions">
+                                                        <a class="prev">&laquo; back</a>
+                                                        <a class="next" >forward&raquo;</a>
+                                                    </div>
+                                                    <div class="cleared"></div>
+
+                                                    <div id='tweets'></div>
+                                                    <div class="cleared"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="art-sidebar1" style="padding-top:20px">
+                    <div class="art-Block" >
+                        <div class="art-Block-tl"></div>
+                        <div class="art-Block-tr"></div>
+                        <div class="art-Block-bl"></div>
+                        <div class="art-Block-br"></div>
+                        <div class="art-Block-tc"></div>
+                        <div class="art-Block-bc"></div>
+                        <div class="art-Block-cl"></div>
+                        <div class="art-Block-cr"></div>
+                        <div class="art-Block-cc"></div>
+                        <div class="art-Block-body">
+
+                            <div class="art-BlockContent">
+                                <div class="art-BlockContent-body" >
+                                    <div id='userPanel'></div>
+                                    <div class="cleared"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="tweetBoxOverlay" class="yui3-overlay-loading">
+    <div class="yui3-widget-hd" style='background-color:#3399ff'></div>
+    <div class="yui3-widget-bd"></div>
+    <div class="yui3-widget-ft"></div>
+</div>
+
+<div id="whoToFollowOverlay" class="yui3-overlay-loading" >
+    <div class="yui3-widget-hd" style='background-color:#3399ff'></div>
+    <div class="yui3-widget-bd"></div>
+    <div class="yui3-widget-ft"></div>
+</div>
+
+<script  type="text/javascript">core.init();</script>
+
+</body>
+</html>
+

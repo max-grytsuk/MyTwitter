@@ -1,0 +1,123 @@
+<?php echo $this->doctype('XHTML1_STRICT'); ?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+    <?php $this->headMeta()->appendHttpEquiv('Content-Type','text/html; charset=UTF-8');
+    echo $this->headMeta() ?>
+
+    <title>MyTwitter</title>
+
+    <?php
+
+    $this->headLink()->appendStylesheet($this->baseUrl('public/css/shared/reset-fonts-grids.css'));
+    $this->headLink()->appendStylesheet($this->baseUrl('public/css/profile/style.css'));
+    $this->headLink()->appendStylesheet('http://static.flowplayer.org/tools/css/tabs.css');
+
+    $this->headScript()->appendFile( ('http://cdn.jquerytools.org/1.2.5/full/jquery.tools.min.js') );
+    $this->headScript()->appendFile( $this->baseUrl('public/js/libs/ajaxupload.3.5.js'),'text/javascript');
+    $this->headScript()->appendFile( $this->baseUrl('public/js/main/profile.js'),'text/javascript');
+
+    echo $this->headScript()."\n";
+    echo $this->headLink();
+    ?>
+
+</head>
+<body>
+<div class="art-nav" id="top">
+    <div style="float: left" >
+        <ul class="art-menu">
+            <li id='bTimeline' style="margin-left:40px;">
+                <a href="/main/index" ><span class="l"></span><span class="r"></span><span class="t">Timeline</span></a>
+            </li>
+
+        </ul>
+    </div>
+    <div id="logged" style="float: right">
+        <div style="float: left; margin-right: 20px;margin-top:4px">
+        </div>
+
+        <div  style="float: left; margin-right: 20px;margin-top:4px;">
+            <a href="/auth/logout">logout</a>
+        </div>
+
+    </div>
+</div>
+<div class="art-Block" style="margin-left:40px;width:450px">
+    <div class="art-Block-tl"></div>
+    <div class="art-Block-tr"></div>
+    <div class="art-Block-bl"></div>
+    <div class="art-Block-br"></div>
+    <div class="art-Block-tc"></div>
+    <div class="art-Block-bc"></div>
+    <div class="art-Block-cl"></div>
+    <div class="art-Block-cr"></div>
+    <div class="art-Block-cc"></div>
+    <div class="art-Block-body">
+
+        <div class="art-BlockContent">
+            <div class="art-BlockContent-body" >
+                <b><div id='email'></div></b>
+                <ul class="tabs">
+                    <li><a href="#"><h3>Avatar</h3></a></li>
+                    <li><a href="#"><h3>Password</h3></a></li>
+                </ul>
+
+                <div class="panes">
+                    <div>
+                        <table >
+                            <tr>
+                                <td  valign='top'>
+                                    <span style='padding:20px'>
+                                    <img id='avatar' src='' height='80'/>
+                                    </span>
+                                </td>
+                                <td valign='top'>
+                                    <span style='padding-top:20px'>
+                                    <span >
+                                        <span id="upload" >Upload File</span><span id="status" ></span>
+                                        <ul id="files" ></ul>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> </br>
+                                    <span style="height:10px;padding:10px">
+                                    <input type='button' class='art-button-wrapper' id='bSaveAvatar' value='Confirm'>
+                                    </span>
+                                </td>
+                            </tr>
+                        </table>
+
+                    </div>
+
+                    <div>
+                        <form class="cmxform" id="passwordChangeForm" method="get" action="">
+
+                            <p>
+                                <label for="cpassword-current">Current password</label>
+                                <em>*</em><input id="cpassword-current" name="curpassword" size="25" type="password" minlength="4" class="required password" />
+                            </p></br>
+                            <p>
+                                <label for="cpassword-new">New password</label>
+                                <em>*</em><input id="cpassword-new" name="newpassword" size="25" type="password" minlength="4" class="required password" />
+                            </p></br>
+                            <p>
+                                <label for="cpassword-new-check">New password check</label>
+                                <em>*</em><input id="cpassword-new-check" name="newpasswordcheck" size="25" type="password" data-equals="new-password" class="required password" />
+                            </p></br>
+                            <p>
+                                <input  class='art-button-wrapper submit'  type="submit" value="Change password"/>
+                            </p>
+
+                        </form>
+
+                    </div>
+
+                     <div id="info">  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

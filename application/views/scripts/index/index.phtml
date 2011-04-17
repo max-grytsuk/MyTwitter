@@ -1,0 +1,177 @@
+<?php echo $this->doctype('XHTML1_STRICT'); ?>
+<html>
+<head>
+
+    <?php $this->headMeta()->appendHttpEquiv('Content-Type','text/html; charset=UTF-8');
+    echo $this->headMeta() ?>
+
+    <title>My Twitter</title>
+
+    <?php
+
+    $this->headLink()->appendStylesheet($this->baseUrl('public/css/index/style.css'));
+    $this->headLink()->appendStylesheet('http://static.flowplayer.org/tools/css/tabs.css');
+
+    $this->headScript()->appendFile( ('http://cdn.jquerytools.org/1.2.5/full/jquery.tools.min.js') );
+
+    $this->headScript()->appendFile( $this->baseUrl('public/js/index/login-auth.js'),'text/javascript');
+    echo $this->headLink()."\n";
+    echo $this->headScript();
+
+    ?>
+</head>
+<body>
+<div id="art-main">
+    <div class="art-Sheet">
+        <div class="art-Sheet-body">
+            <h2 class="art-PostHeader">
+                MyTwitter
+            </h2>
+            <div class="art-contentLayout">
+                <div class="art-content">
+                    <div class="art-Post">
+                        <div class="art-Post-body">
+                            <div class="art-Post-inner">
+                                <div class="art-PostContent">
+                                    <div class="art-Block" >
+                                        <div class="art-Block-tl"></div>
+                                        <div class="art-Block-tr"></div>
+                                        <div class="art-Block-bl"></div>
+                                        <div class="art-Block-br"></div>
+                                        <div class="art-Block-tc"></div>
+                                        <div class="art-Block-bc"></div>
+                                        <div class="art-Block-cl"></div>
+                                        <div class="art-Block-cr"></div>
+                                        <div class="art-Block-cc"></div>
+                                        <div class="art-Block-body">
+
+                                            <div class="art-BlockContent">
+                                                <div class="art-BlockContent-body">
+                                                    <div>
+                                                        <ul style="font-size: 16px">
+                                                            <li>
+                                                                <p>Регистрация пользователей:</p>
+                                                                <p>   Логин = Email</p>
+                                                                <p>   Пароль </p>
+                                                                <p>   Аватар (необязательно) </p>
+                                                                <p>  Captcha при регистрации, активация аккаунта по почте </p>
+                                                            </li>
+                                                            <li>
+                                                                <p>Отправка/удаление коротких сообщений в свою ленту (не более 140
+                                                                    символов) с помощью ajax </p>
+                                                            </li>
+                                                            <li>
+                                                                <p>Пейджинатор ленты как на twitter.com (на странице не более 10
+                                                                    сообщений, при клике на ссылку "еще", автоматически подгружать
+                                                                    следующие 10 с помощью ajax)</p>
+                                                            </li>
+                                                            <li>
+                                                                <p>Изменение профиля (пароля и аватарки)</p>
+                                                            </li>
+                                                            <li>
+                                                                <p>Возможность стать читателем лент других аккаунтов</p>
+                                                            </li>
+                                                            <li>
+                                                                <p>Отображать список пользователей и их количество:</p>
+                                                                <p>которых читаете Вы</p>
+                                                                <p>которые читают Вас</p>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="art-sidebar1" style="padding-top:20px">
+                    <div class="art-Block" >
+                        <div class="art-Block-tl"></div>
+                        <div class="art-Block-tr"></div>
+                        <div class="art-Block-bl"></div>
+                        <div class="art-Block-br"></div>
+                        <div class="art-Block-tc"></div>
+                        <div class="art-Block-bc"></div>
+                        <div class="art-Block-cl"></div>
+                        <div class="art-Block-cr"></div>
+                        <div class="art-Block-cc"></div>
+                        <div class="art-Block-body">
+
+                            <div class="art-BlockContent">
+                                <div class="art-BlockContent-body">
+
+                                    <!-- the tabs -->
+                                    <ul class="tabs">
+                                        <li><a href="#"><h3>Login</h3></a></li>
+                                        <li><a href="#"><h3>Signup</h3></a></li>
+
+                                    </ul>
+
+                                    <!-- tab "panes" -->
+                                    <div class="panes">
+                                        <div>
+                                            <form class="cmxform" id="loginForm" method="get" action="">
+
+                                                <p>
+                                                    <label for="cemail">email</label>
+                                                    <em>*</em><input id="cemail" name="email" type="email" size="25"  class="required email" />
+                                                </p>
+                                                <p>
+                                                    <label for="cpassword">password</label>
+                                                    <em>*</em><input id="cpassword" name="password" size="25" type="password" class="required password" />
+                                                </p>
+                                                <p>
+                                                    <input class="submit" type="submit" value="Login"/>
+                                                </p>
+
+                                            </form>
+                                            <div id="errors-login">
+                                                <h2>Please fix these first</h2>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <form class="cmxform" id="signupForm" method="get" action="">
+
+                                                <p>
+                                                    <label for="cemail-signup">email</label>
+                                                    <em>*</em><input id="cemail-signup" name="email" type="email" size="25" minlength="9" class="required email" />
+                                                </p>
+                                                <p>
+                                                    <label for="cpassword-signup">password</label>
+                                                    <em>*</em><input id="cpassword-signup" name="password" size="25" type="password" minlength="4" class="required password" />
+                                                </p>
+                                                <p>
+                                                    <label for="cpassword-check-signup">password check</label>
+                                                    <em>*</em><input id="cpassword-check-signup" name="password-check" size="25" type="password" data-equals="password" class="required password" />
+                                                </p>
+                                            </form>
+
+                                            <div id="errors-signup">
+                                                <h2>Please fix these first</h2>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div id='captcha' style='display:none;'>
+                                        <div style="float:left;"><?php echo  $this->recaptcha->getHTML(); ?>   </div>
+                                        <div id ='submitSignup'> <input type="submit" value="Signup"/>  </div>
+                                    </div>
+                                    <div class="cleared"></div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
